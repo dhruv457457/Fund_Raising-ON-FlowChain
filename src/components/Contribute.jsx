@@ -25,7 +25,7 @@ export const Contribute = ({ campaignId }) => {
     <div className="p-6 bg-darkBlack text-neonGreen rounded-lg shadow-lg max-w-md mx-auto mt-10">
       <h3 className="text-xl font-semibold text-center mb-4">Contribute to Campaign</h3>
 
-      <label className="block text-lg font-medium mb-2" htmlFor="amount">Amount (ETH)</label>
+      <label className="block text-lg font-medium mb-2" htmlFor="amount">Amount (FLOW)</label>
       <input
         type="number"
         id="amount"
