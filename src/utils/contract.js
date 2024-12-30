@@ -1,4 +1,4 @@
-export const CONTRACT_ADDRESS = "0xCcC3E1Ad325E18DDc681703A1544c633C1f1C042";
+export const CONTRACT_ADDRESS = "0x81e611ad1F718D9a0090f94f9A3E36692D91b2de";
 
 export const CONTRACT_ABI = [
   {
@@ -46,5 +46,43 @@ export const CONTRACT_ABI = [
     ],
     "stateMutability": "view",
     "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "_campaignId", "type": "uint256" }],
+    "name": "hasWithdrawnFunds",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "address", "name": "creator", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "campaignId", "type": "uint256" },
+      { "indexed": false, "internalType": "string", "name": "title", "type": "string" },
+      { "indexed": false, "internalType": "uint256", "name": "targetAmount", "type": "uint256" }
+    ],
+    "name": "CampaignCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "uint256", "name": "campaignId", "type": "uint256" },
+      { "indexed": true, "internalType": "address", "name": "contributor", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+    ],
+    "name": "ContributionReceived",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "uint256", "name": "campaignId", "type": "uint256" },
+      { "indexed": true, "internalType": "address", "name": "creator", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+    ],
+    "name": "FundsWithdrawn",
+    "type": "event"
   }
 ];
