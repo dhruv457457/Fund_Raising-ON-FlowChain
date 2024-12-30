@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+    background-color: #121212;
+    color: #39FF14;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  button {
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px #39FF14;
+  }
+  
+  input, textarea {
+    transition: all 0.3s ease;
+  }
+  
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #39FF14;
+  }
+  
