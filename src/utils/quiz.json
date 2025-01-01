@@ -1,0 +1,291 @@
+[{
+	"inputs": [],
+	"stateMutability": "nonpayable",
+	"type": "constructor"
+},
+{
+	"anonymous": false,
+	"inputs": [
+		{
+			"indexed": true,
+			"internalType": "address",
+			"name": "player",
+			"type": "address"
+		},
+		{
+			"indexed": false,
+			"internalType": "uint256",
+			"name": "questionId",
+			"type": "uint256"
+		},
+		{
+			"indexed": false,
+			"internalType": "bool",
+			"name": "correct",
+			"type": "bool"
+		}
+	],
+	"name": "AnswerSubmitted",
+	"type": "event"
+},
+{
+	"anonymous": false,
+	"inputs": [
+		{
+			"indexed": false,
+			"internalType": "uint256",
+			"name": "newLimit",
+			"type": "uint256"
+		}
+	],
+	"name": "DailyLimitUpdated",
+	"type": "event"
+},
+{
+	"anonymous": false,
+	"inputs": [
+		{
+			"indexed": false,
+			"internalType": "uint256",
+			"name": "questionCount",
+			"type": "uint256"
+		}
+	],
+	"name": "QuestionAdded",
+	"type": "event"
+},
+{
+	"inputs": [
+		{
+			"internalType": "string",
+			"name": "_text",
+			"type": "string"
+		},
+		{
+			"internalType": "string[4]",
+			"name": "_options",
+			"type": "string[4]"
+		},
+		{
+			"internalType": "uint8",
+			"name": "_correctAnswer",
+			"type": "uint8"
+		},
+		{
+			"internalType": "uint256",
+			"name": "_timeLimit",
+			"type": "uint256"
+		}
+	],
+	"name": "addQuestion",
+	"outputs": [],
+	"stateMutability": "nonpayable",
+	"type": "function"
+},
+{
+	"inputs": [],
+	"name": "admin",
+	"outputs": [
+		{
+			"internalType": "address",
+			"name": "",
+			"type": "address"
+		}
+	],
+	"stateMutability": "view",
+	"type": "function"
+},
+{
+	"inputs": [],
+	"name": "dailyAttemptLimit",
+	"outputs": [
+		{
+			"internalType": "uint256",
+			"name": "",
+			"type": "uint256"
+		}
+	],
+	"stateMutability": "view",
+	"type": "function"
+},
+{
+	"inputs": [],
+	"name": "getAllQuestions",
+	"outputs": [
+		{
+			"components": [
+				{
+					"internalType": "string",
+					"name": "questionText",
+					"type": "string"
+				},
+				{
+					"internalType": "string[4]",
+					"name": "options",
+					"type": "string[4]"
+				},
+				{
+					"internalType": "uint8",
+					"name": "correctAnswer",
+					"type": "uint8"
+				},
+				{
+					"internalType": "uint256",
+					"name": "timeLimit",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "active",
+					"type": "bool"
+				}
+			],
+			"internalType": "struct QuizGame.Question[]",
+			"name": "",
+			"type": "tuple[]"
+		}
+	],
+	"stateMutability": "view",
+	"type": "function"
+},
+{
+	"inputs": [
+		{
+			"internalType": "address",
+			"name": "_player",
+			"type": "address"
+		}
+	],
+	"name": "getPlayerStats",
+	"outputs": [
+		{
+			"internalType": "uint256",
+			"name": "score",
+			"type": "uint256"
+		},
+		{
+			"internalType": "uint256",
+			"name": "attemptsToday",
+			"type": "uint256"
+		},
+		{
+			"internalType": "uint256",
+			"name": "lastAttempt",
+			"type": "uint256"
+		}
+	],
+	"stateMutability": "view",
+	"type": "function"
+},
+{
+	"inputs": [
+		{
+			"internalType": "uint256",
+			"name": "_questionId",
+			"type": "uint256"
+		}
+	],
+	"name": "getQuestion",
+	"outputs": [
+		{
+			"internalType": "string",
+			"name": "questionText",
+			"type": "string"
+		},
+		{
+			"internalType": "string[4]",
+			"name": "options",
+			"type": "string[4]"
+		},
+		{
+			"internalType": "uint8",
+			"name": "correctAnswer",
+			"type": "uint8"
+		},
+		{
+			"internalType": "uint256",
+			"name": "timeLimit",
+			"type": "uint256"
+		},
+		{
+			"internalType": "bool",
+			"name": "active",
+			"type": "bool"
+		}
+	],
+	"stateMutability": "view",
+	"type": "function"
+},
+{
+	"inputs": [
+		{
+			"internalType": "address",
+			"name": "",
+			"type": "address"
+		}
+	],
+	"name": "players",
+	"outputs": [
+		{
+			"internalType": "uint256",
+			"name": "score",
+			"type": "uint256"
+		},
+		{
+			"internalType": "uint256",
+			"name": "attemptsToday",
+			"type": "uint256"
+		},
+		{
+			"internalType": "uint256",
+			"name": "lastAttempt",
+			"type": "uint256"
+		}
+	],
+	"stateMutability": "view",
+	"type": "function"
+},
+{
+	"inputs": [],
+	"name": "questionCount",
+	"outputs": [
+		{
+			"internalType": "uint256",
+			"name": "",
+			"type": "uint256"
+		}
+	],
+	"stateMutability": "view",
+	"type": "function"
+},
+{
+	"inputs": [
+		{
+			"internalType": "uint256",
+			"name": "_limit",
+			"type": "uint256"
+		}
+	],
+	"name": "setDailyLimit",
+	"outputs": [],
+	"stateMutability": "nonpayable",
+	"type": "function"
+},
+{
+	"inputs": [
+		{
+			"internalType": "uint256",
+			"name": "_questionId",
+			"type": "uint256"
+		},
+		{
+			"internalType": "uint8",
+			"name": "_answer",
+			"type": "uint8"
+		}
+	],
+	"name": "submitAnswer",
+	"outputs": [],
+	"stateMutability": "nonpayable",
+	"type": "function"
+}]
