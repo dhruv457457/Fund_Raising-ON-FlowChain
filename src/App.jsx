@@ -1,27 +1,42 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React from "react";
-
-import Home from "./pages/Home";
-import Quiz from "./pages/Quiz";
-import Leaderboard from "./pages/Leaderboard";
-import AdminPanel from "./pages/AdminPanel"; // Import Admin Panel
-import Navbar from "./components/Navbar";
+import React, { useState, useEffect } from 'react';
+import { ethers } from 'ethers';
+import { Home } from './components/Home';
+import { CreateCampaign } from './components/CreateCampaign';
+import { CampaignList } from './components/CampaignList';
+import { ConnectWallet } from './components/ConnectWallet';
+import { Contribute } from './components/Contribute';
+import { WithdrawFunds } from './components/WithdrawFunds';
+import { CONTRACT_ADDRESS, CONTRACT_ABI } from './utils/contract';
 
 function App() {
+  const [connectedWallet, setConnectedWallet] = useState('');
+  const [campaigns, setCampaigns] = useState([]); // State to hold campaigns
+  const [loading, setLoading] = useState(false); // State for loading
+
+  useEffect(() => {
+    if (connectedWallet) {
+      fetchCampaigns();
+    }
+  }, [connectedWallet]);
+
+  const fetchCampaigns = async () => {
+    setLoading(true); // Start loading
+    try {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, provider);
+      const campaignsData = await contract.getCampaigns();
+      setCampaigns(campaignsData);
+    } catch (err) {
+      console.error('Error fetching campaigns:', err);
+      alert('Error fetching campaigns. Please try again later.');
+    } finally {
+      setLoading(false); // Stop loading
+    }
+  };
+
   return (
-<<<<<<< Updated upstream
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/quiz" element={<Quiz />} />
-        <Route path="/leaderboard" element={<Leaderboard />} />
-        <Route path="/admin" element={<AdminPanel />} /> {/* Admin Panel */}
-      </Routes>
-    </Router>
-=======
     <div className="bg-darkBlack text-neonGreen min-h-screen">
-      <header className="p-4 bg-black-900 text-center">
+      <header className="p-4 bg-gray-900 text-center">
         <ConnectWallet onWalletConnected={(address) => setConnectedWallet(address)} />
       </header>
       <main className="container mx-auto px-4 py-8">
@@ -52,7 +67,6 @@ function App() {
         )}
       </main>
     </div>
->>>>>>> Stashed changes
   );
 }
 

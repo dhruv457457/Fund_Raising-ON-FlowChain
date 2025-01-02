@@ -1,27 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* Neon Text */
-/* Tailwind Custom Neon Effect (Add to your tailwind.config or external CSS) */
-.neon-text {
-    text-shadow: 0 0 10px rgba(255, 105, 180, 0.7), 0 0 20px rgba(255, 105, 180, 0.5);
+body {
+    background-color: #121212;
+    color: #39FF14;
+    font-family: 'Roboto', sans-serif;
   }
   
-  .neon-link {
-    text-shadow: 0 0 10px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 255, 0, 0.7);
+  button {
+    transition: all 0.3s ease;
   }
   
-  .neon-button {
-    box-shadow: 0 0 5px rgba(255, 105, 180, 0.8), 0 0 15px rgba(255, 105, 180, 0.5);
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px #39FF14;
   }
   
-  .neon-box {
-    box-shadow: 0 0 5px rgba(0, 255, 0, 0.8), 0 0 15px rgba(0, 255, 0, 0.7);
+  input, textarea {
+    transition: all 0.3s ease;
   }
   
-  .btn {
-    font-size: 1rem; /* Ensure appropriate font size */
-    line-height: 1.5; /* Set a comfortable line height */
-    word-wrap: break-word; /* Prevent long words from spilling over */
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #39FF14;
   }
   
