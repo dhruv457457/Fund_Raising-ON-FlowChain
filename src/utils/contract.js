@@ -1,6 +1,10 @@
+<<<<<<< Updated upstream
 import { ethers } from 'ethers';
 import Web3Modal from 'web3modal';
 import contractABI from './quiz.json';  // Path to your contract's ABI file
+=======
+export const CONTRACT_ADDRESS = "0x91c642c4B8bB939f61785FC3682E355839384a05";
+>>>>>>> Stashed changes
 
 const contractAddress = '0xb9bbB72224120AC77d3a99fc57C12C41cF6Cd1E6'; // Your contract address
 
